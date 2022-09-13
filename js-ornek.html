@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input type="text" id="name" placeholder="Lütfen isminizi giriniz"> <br><br>
+    <button onclick="yazdir()">Yazdır </button><br><br>
+    <p id="paragraf"> </p>
+
+    <div style="border: 1px solid black; border-radius: 20px; background-color: antiquewhite; padding: 2rem; margin-top: 30px;">
+        <input type="text" id="name1" placeholder="Lütfen isminizi giriniz"> <br><br>
+        <input type="text" id="name2" placeholder="Lütfen isminizi giriniz"> <br><br>
+        <input type="text" id="name3" placeholder="Lütfen isminizi giriniz"> <br><br>
+        <button onclick="listeyeEkle()">Listeye Ekle </button>
+        <button onclick="listeyiTemizle()">Listeyi Temizle </button><br><br>
+        <h2>İsim listesi</h2>
+        <ul id="list">
+        </ul>
+    </div>
+
+    <div style="border: 1px solid black; border-radius: 20px; background-color: crimson; padding: 2rem; margin-top: 30px;">
+        <button onclick="increase()">Arttır </button>
+        <button onclick="decrease()">Azalt </button>
+        <h2>Sayac</h2>
+        <div id="counter">0</div>
+    </div>
+
+    <div style="border: 1px solid black; border-radius: 20px; background-color: rgb(62, 226, 255); padding: 2rem; margin-top: 30px;">
+        <input type="text" id="nome" placeholder="Lütfen isminizi giriniz"> <br><br>
+        <input type="text" id="cognome" placeholder="Lütfen soyisminizi giriniz"> <br><br>
+        <input type="text" id="eta" placeholder="Lütfen yaşınızı giriniz"> <br><br>
+        <button onclick="tabloyaEkle()">Tabloya Ekle </button>
+        <button onclick="tabloyuTemizle()">Tabloyu Temizle </button>
+        <table id="tablo">
+            <tr>
+              <th>Ad</th>
+              <th>Soyad</th>
+              <th>Yaş</th>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        function tabloyaEkle() {
+            var nome = document.getElementById('nome')
+            var cognome = document.getElementById('cognome')
+            var eta = document.getElementById('eta')
+            var tablo = document.getElementById('tablo')
+            tablo.innerHTML +=
+                `<tr>
+            <td>${nome.value}</td>
+            <td>${cognome.value}</td>
+            <td>${eta.value}</td>
+            </tr>
+            `
+        }
+        function tabloyuTemizle() {
+            var tablo = document.getElementById('tablo')
+            tablo.innerHTML = `  
+            <table id="tablo">
+            <tr>
+              <th>Ad</th>
+              <th>Soyad</th>
+              <th>Yaş</th>
+            </tr>
+            </table>` 
+            var number = parseInt()           
+        }
+        function yazdir() {
+            var name = document.getElementById('name')
+            var paragraf = document.getElementById('paragraf')
+            paragraf.innerText = `isim: ${name.value}`
+        }
+        function listeyeEkle() {
+            var name1 = document.getElementById('name1')
+            var name2 = document.getElementById('name2')
+            var name3 = document.getElementById('name3')
+            var list = document.getElementById('list')
+            list.innerHTML +=
+                `
+            <li>${name1.value}</li>
+            <li>${name2.value}</li>
+            <li>${name3.value}</li>
+            `
+        }
+        function listeyiTemizle() {
+            var list = document.getElementById('list')
+            list.innerHTML = ` <ul id='list'>   Liste Temizlendi   </ul> `
+            var number = parseInt()
+        }
+        function increase() {
+            var counter = document.getElementById('counter')
+            var number = parseInt(counter.innerText)
+            number += 1
+            counter.innerText = number
+        }
+        function decrease() {
+            var counter = document.getElementById('counter')
+            var number = parseInt(counter.innerText)
+            number -= 1
+            counter.innerText = number
+        }
+    </script>
+</body>
+</html>
